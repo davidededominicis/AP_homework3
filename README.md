@@ -1,4 +1,4 @@
-# AP_homework3
+# Advanced Programming - Homework 3
 
 ## GROUP MEMBERS
 Sara Carpenè – saracarpene01@gmail.com Davide De Dominicis – dedominicis2001@gmail.com Andrea Gottardi – andreagottardi24@gmail.com
