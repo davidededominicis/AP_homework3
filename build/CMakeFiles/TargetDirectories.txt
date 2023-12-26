@@ -1,0 +1,3 @@
+/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles/csvparser.dir
+/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles/edit_cache.dir
+/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles/rebuild_cache.dir

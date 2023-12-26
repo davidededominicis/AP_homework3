@@ -1,11 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 project(advanced_programming_homework_3)
 
-find_package(pybind11 REQUIRED)
-include_directories(SYSTEM ${pybind11_INCLUDE_DIRS})
-
-pybind_add_module(example example.cpp) # does this directly compile the shared library??
-
+#find_package(pybind11 REQUIRED)
+#include_directories(SYSTEM ${pybind11_INCLUDE_DIRS})
 
 
 ##################################################
@@ -14,10 +11,7 @@ pybind_add_module(example example.cpp) # does this directly compile the shared l
 
 ##################################################
 
-
-
-
-add_compile_options(-std=c++17 -Wall -Wextra -Wpedantic -Werror -Wno-deprecated-copy)
+add_compile_options(-std=c++17 -Wall -Wextra -Wpedantic) 
 
 # --COMPILE CSVPARSER SHARED LIBRARY--
 
@@ -30,39 +24,14 @@ else()
     message(FATAL_ERROR "Boost not found")
 endif()
 
+set(pybind11_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ext/pybind_installation/share/cmake/pybind11")
+find_package(pybind11 REQUIRED)
+
 ### compile csvparser.so
-add_library(csvparser SHARED src/csvparser.hpp src/csvparser.cpp)
+pybind11_add_module(csvparser src/csvparser.hpp src/csvparser.cpp)
 
 ### include header files for the library
 target_include_directories(csvparser PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 ### link against Boost and any other necessary libraries
 target_link_libraries(csvparser PRIVATE ${Boost_LIBRARIES})
-
-
-# --COMPILE ODESOLVER SHARED LIBRARY--
-
-## find Eigen
-set(EIGEN_PATH "option_value" CACHE STRING "Some user specified option")
-find_package(Eigen3 PATHS ${EIGEN_PATH} REQUIRED)
-if(Eigen3_FOUND)
-	message("Eigen3 found")
-else()
-	message(FATAL_ERROR "Eigen3 not found")
-endif()
-### compile odesolver.so
-add_library(odesolver SHARED src/odesolver.hpp src/odesolver.cpp)
-
-target_include_directories(odesolver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${EIGEN3_INCLUDE_DIR})
-message("${EIGEN3_INCLUDE_DIR}")
-# --BUILD EXECUTABLES--
-
-add_executable(maincsv apps/maincsv.cpp)
-
-### link against library
-target_link_libraries(maincsv PRIVATE csvparser)
-
-add_executable(mainode apps/mainode.cpp)
-
-# Link against the main library
-target_link_libraries(mainode PRIVATE odesolver)

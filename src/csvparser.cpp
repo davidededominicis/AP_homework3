@@ -481,6 +481,3 @@ void CSVParser::classification(const string wanted, const size_t col_idx, const 
        throw runtime_error("unable to open the file");
    }
     };
-     
-       
-
