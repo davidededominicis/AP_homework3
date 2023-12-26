@@ -1,4 +1,7 @@
 import csvparser
 
 
-c = csvparser.CSVParser("file.csv")
+c = csvparser.CSVParser("../csv_examples/Iris.csv")
+c.read()
+c.summary("output")
+

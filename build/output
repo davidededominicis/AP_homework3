@@ -1,0 +1,353 @@
+
+-------------------------------------------------------------
+Column Id:
+-------------------------------------------------------------
+
+Mean = 75.5, Median = 75, Std Dev = 43.3003, Variance = 1874.92
+
+Frequency count of all the element in the column
+ Element:  1.000000 Frequency: 1
+ Element:  10.000000 Frequency: 1
+ Element:  100.000000 Frequency: 1
+ Element:  101.000000 Frequency: 1
+ Element:  102.000000 Frequency: 1
+ Element:  103.000000 Frequency: 1
+ Element:  104.000000 Frequency: 1
+ Element:  105.000000 Frequency: 1
+ Element:  106.000000 Frequency: 1
+ Element:  107.000000 Frequency: 1
+ Element:  108.000000 Frequency: 1
+ Element:  109.000000 Frequency: 1
+ Element:  11.000000 Frequency: 1
+ Element:  110.000000 Frequency: 1
+ Element:  111.000000 Frequency: 1
+ Element:  112.000000 Frequency: 1
+ Element:  113.000000 Frequency: 1
+ Element:  114.000000 Frequency: 1
+ Element:  115.000000 Frequency: 1
+ Element:  116.000000 Frequency: 1
+ Element:  117.000000 Frequency: 1
+ Element:  118.000000 Frequency: 1
+ Element:  119.000000 Frequency: 1
+ Element:  12.000000 Frequency: 1
+ Element:  120.000000 Frequency: 1
+ Element:  121.000000 Frequency: 1
+ Element:  122.000000 Frequency: 1
+ Element:  123.000000 Frequency: 1
+ Element:  124.000000 Frequency: 1
+ Element:  125.000000 Frequency: 1
+ Element:  126.000000 Frequency: 1
+ Element:  127.000000 Frequency: 1
+ Element:  128.000000 Frequency: 1
+ Element:  129.000000 Frequency: 1
+ Element:  13.000000 Frequency: 1
+ Element:  130.000000 Frequency: 1
+ Element:  131.000000 Frequency: 1
+ Element:  132.000000 Frequency: 1
+ Element:  133.000000 Frequency: 1
+ Element:  134.000000 Frequency: 1
+ Element:  135.000000 Frequency: 1
+ Element:  136.000000 Frequency: 1
+ Element:  137.000000 Frequency: 1
+ Element:  138.000000 Frequency: 1
+ Element:  139.000000 Frequency: 1
+ Element:  14.000000 Frequency: 1
+ Element:  140.000000 Frequency: 1
+ Element:  141.000000 Frequency: 1
+ Element:  142.000000 Frequency: 1
+ Element:  143.000000 Frequency: 1
+ Element:  144.000000 Frequency: 1
+ Element:  145.000000 Frequency: 1
+ Element:  146.000000 Frequency: 1
+ Element:  147.000000 Frequency: 1
+ Element:  148.000000 Frequency: 1
+ Element:  149.000000 Frequency: 1
+ Element:  15.000000 Frequency: 1
+ Element:  150.000000 Frequency: 1
+ Element:  16.000000 Frequency: 1
+ Element:  17.000000 Frequency: 1
+ Element:  18.000000 Frequency: 1
+ Element:  19.000000 Frequency: 1
+ Element:  2.000000 Frequency: 1
+ Element:  20.000000 Frequency: 1
+ Element:  21.000000 Frequency: 1
+ Element:  22.000000 Frequency: 1
+ Element:  23.000000 Frequency: 1
+ Element:  24.000000 Frequency: 1
+ Element:  25.000000 Frequency: 1
+ Element:  26.000000 Frequency: 1
+ Element:  27.000000 Frequency: 1
+ Element:  28.000000 Frequency: 1
+ Element:  29.000000 Frequency: 1
+ Element:  3.000000 Frequency: 1
+ Element:  30.000000 Frequency: 1
+ Element:  31.000000 Frequency: 1
+ Element:  32.000000 Frequency: 1
+ Element:  33.000000 Frequency: 1
+ Element:  34.000000 Frequency: 1
+ Element:  35.000000 Frequency: 1
+ Element:  36.000000 Frequency: 1
+ Element:  37.000000 Frequency: 1
+ Element:  38.000000 Frequency: 1
+ Element:  39.000000 Frequency: 1
+ Element:  4.000000 Frequency: 1
+ Element:  40.000000 Frequency: 1
+ Element:  41.000000 Frequency: 1
+ Element:  42.000000 Frequency: 1
+ Element:  43.000000 Frequency: 1
+ Element:  44.000000 Frequency: 1
+ Element:  45.000000 Frequency: 1
+ Element:  46.000000 Frequency: 1
+ Element:  47.000000 Frequency: 1
+ Element:  48.000000 Frequency: 1
+ Element:  49.000000 Frequency: 1
+ Element:  5.000000 Frequency: 1
+ Element:  50.000000 Frequency: 1
+ Element:  51.000000 Frequency: 1
+ Element:  52.000000 Frequency: 1
+ Element:  53.000000 Frequency: 1
+ Element:  54.000000 Frequency: 1
+ Element:  55.000000 Frequency: 1
+ Element:  56.000000 Frequency: 1
+ Element:  57.000000 Frequency: 1
+ Element:  58.000000 Frequency: 1
+ Element:  59.000000 Frequency: 1
+ Element:  6.000000 Frequency: 1
+ Element:  60.000000 Frequency: 1
+ Element:  61.000000 Frequency: 1
+ Element:  62.000000 Frequency: 1
+ Element:  63.000000 Frequency: 1
+ Element:  64.000000 Frequency: 1
+ Element:  65.000000 Frequency: 1
+ Element:  66.000000 Frequency: 1
+ Element:  67.000000 Frequency: 1
+ Element:  68.000000 Frequency: 1
+ Element:  69.000000 Frequency: 1
+ Element:  7.000000 Frequency: 1
+ Element:  70.000000 Frequency: 1
+ Element:  71.000000 Frequency: 1
+ Element:  72.000000 Frequency: 1
+ Element:  73.000000 Frequency: 1
+ Element:  74.000000 Frequency: 1
+ Element:  75.000000 Frequency: 1
+ Element:  76.000000 Frequency: 1
+ Element:  77.000000 Frequency: 1
+ Element:  78.000000 Frequency: 1
+ Element:  79.000000 Frequency: 1
+ Element:  8.000000 Frequency: 1
+ Element:  80.000000 Frequency: 1
+ Element:  81.000000 Frequency: 1
+ Element:  82.000000 Frequency: 1
+ Element:  83.000000 Frequency: 1
+ Element:  84.000000 Frequency: 1
+ Element:  85.000000 Frequency: 1
+ Element:  86.000000 Frequency: 1
+ Element:  87.000000 Frequency: 1
+ Element:  88.000000 Frequency: 1
+ Element:  89.000000 Frequency: 1
+ Element:  9.000000 Frequency: 1
+ Element:  90.000000 Frequency: 1
+ Element:  91.000000 Frequency: 1
+ Element:  92.000000 Frequency: 1
+ Element:  93.000000 Frequency: 1
+ Element:  94.000000 Frequency: 1
+ Element:  95.000000 Frequency: 1
+ Element:  96.000000 Frequency: 1
+ Element:  97.000000 Frequency: 1
+ Element:  98.000000 Frequency: 1
+ Element:  99.000000 Frequency: 1
+
+Correlation with other numeric columns:
+  With column 'SepalLengthCm': 0.716676
+  With column 'SepalWidthCm': -0.397729
+  With column 'PetalLengthCm': 0.882747
+  With column 'PetalWidthCm': 0.899759
+
+-------------------------------------------------------------
+Column SepalLengthCm:
+-------------------------------------------------------------
+
+Mean = 5.84333, Median = 5.87387, Std Dev = 0.825301, Variance = 0.681122
+
+Frequency count of all the element in the column
+ Element:  4.300000 Frequency: 1
+ Element:  4.400000 Frequency: 3
+ Element:  4.500000 Frequency: 1
+ Element:  4.600000 Frequency: 4
+ Element:  4.700000 Frequency: 2
+ Element:  4.800000 Frequency: 5
+ Element:  4.900000 Frequency: 6
+ Element:  5.000000 Frequency: 10
+ Element:  5.100000 Frequency: 9
+ Element:  5.200000 Frequency: 4
+ Element:  5.300000 Frequency: 1
+ Element:  5.400000 Frequency: 6
+ Element:  5.500000 Frequency: 7
+ Element:  5.600000 Frequency: 6
+ Element:  5.700000 Frequency: 8
+ Element:  5.800000 Frequency: 7
+ Element:  5.900000 Frequency: 3
+ Element:  6.000000 Frequency: 6
+ Element:  6.100000 Frequency: 6
+ Element:  6.200000 Frequency: 4
+ Element:  6.300000 Frequency: 9
+ Element:  6.400000 Frequency: 7
+ Element:  6.500000 Frequency: 5
+ Element:  6.600000 Frequency: 2
+ Element:  6.700000 Frequency: 8
+ Element:  6.800000 Frequency: 3
+ Element:  6.900000 Frequency: 4
+ Element:  7.000000 Frequency: 1
+ Element:  7.100000 Frequency: 1
+ Element:  7.200000 Frequency: 3
+ Element:  7.300000 Frequency: 1
+ Element:  7.400000 Frequency: 1
+ Element:  7.600000 Frequency: 1
+ Element:  7.700000 Frequency: 4
+ Element:  7.900000 Frequency: 1
+
+Correlation with other numeric columns:
+  With column 'Id': 0.716676
+  With column 'SepalWidthCm': -0.109369
+  With column 'PetalLengthCm': 0.871754
+  With column 'PetalWidthCm': 0.817954
+
+-------------------------------------------------------------
+Column SepalWidthCm:
+-------------------------------------------------------------
+
+Mean = 3.054, Median = 3.00264, Std Dev = 0.432147, Variance = 0.186751
+
+Frequency count of all the element in the column
+ Element:  2.000000 Frequency: 1
+ Element:  2.200000 Frequency: 3
+ Element:  2.300000 Frequency: 4
+ Element:  2.400000 Frequency: 3
+ Element:  2.500000 Frequency: 8
+ Element:  2.600000 Frequency: 5
+ Element:  2.700000 Frequency: 9
+ Element:  2.800000 Frequency: 14
+ Element:  2.900000 Frequency: 10
+ Element:  3.000000 Frequency: 26
+ Element:  3.100000 Frequency: 12
+ Element:  3.200000 Frequency: 13
+ Element:  3.300000 Frequency: 6
+ Element:  3.400000 Frequency: 12
+ Element:  3.500000 Frequency: 6
+ Element:  3.600000 Frequency: 3
+ Element:  3.700000 Frequency: 3
+ Element:  3.800000 Frequency: 6
+ Element:  3.900000 Frequency: 2
+ Element:  4.000000 Frequency: 1
+ Element:  4.100000 Frequency: 1
+ Element:  4.200000 Frequency: 1
+ Element:  4.400000 Frequency: 1
+
+Correlation with other numeric columns:
+  With column 'Id': -0.397729
+  With column 'SepalLengthCm': -0.109369
+  With column 'PetalLengthCm': -0.420516
+  With column 'PetalWidthCm': -0.356544
+
+-------------------------------------------------------------
+Column PetalLengthCm:
+-------------------------------------------------------------
+
+Mean = 3.75867, Median = 3.87615, Std Dev = 1.75853, Variance = 3.09242
+
+Frequency count of all the element in the column
+ Element:  1.000000 Frequency: 1
+ Element:  1.100000 Frequency: 1
+ Element:  1.200000 Frequency: 2
+ Element:  1.300000 Frequency: 7
+ Element:  1.400000 Frequency: 12
+ Element:  1.500000 Frequency: 14
+ Element:  1.600000 Frequency: 7
+ Element:  1.700000 Frequency: 4
+ Element:  1.900000 Frequency: 2
+ Element:  3.000000 Frequency: 1
+ Element:  3.300000 Frequency: 2
+ Element:  3.500000 Frequency: 2
+ Element:  3.600000 Frequency: 1
+ Element:  3.700000 Frequency: 1
+ Element:  3.800000 Frequency: 1
+ Element:  3.900000 Frequency: 3
+ Element:  4.000000 Frequency: 5
+ Element:  4.100000 Frequency: 3
+ Element:  4.200000 Frequency: 4
+ Element:  4.300000 Frequency: 2
+ Element:  4.400000 Frequency: 4
+ Element:  4.500000 Frequency: 8
+ Element:  4.600000 Frequency: 3
+ Element:  4.700000 Frequency: 5
+ Element:  4.800000 Frequency: 4
+ Element:  4.900000 Frequency: 5
+ Element:  5.000000 Frequency: 4
+ Element:  5.100000 Frequency: 8
+ Element:  5.200000 Frequency: 2
+ Element:  5.300000 Frequency: 2
+ Element:  5.400000 Frequency: 2
+ Element:  5.500000 Frequency: 3
+ Element:  5.600000 Frequency: 6
+ Element:  5.700000 Frequency: 3
+ Element:  5.800000 Frequency: 3
+ Element:  5.900000 Frequency: 2
+ Element:  6.000000 Frequency: 2
+ Element:  6.100000 Frequency: 3
+ Element:  6.300000 Frequency: 1
+ Element:  6.400000 Frequency: 1
+ Element:  6.600000 Frequency: 1
+ Element:  6.700000 Frequency: 2
+ Element:  6.900000 Frequency: 1
+
+Correlation with other numeric columns:
+  With column 'Id': 0.882747
+  With column 'SepalLengthCm': 0.871754
+  With column 'SepalWidthCm': -0.420516
+  With column 'PetalWidthCm': 0.962757
+
+-------------------------------------------------------------
+Column PetalWidthCm:
+-------------------------------------------------------------
+
+Mean = 1.19867, Median = 1.21367, Std Dev = 0.760613, Variance = 0.578532
+
+Frequency count of all the element in the column
+ Element:  0.100000 Frequency: 6
+ Element:  0.200000 Frequency: 28
+ Element:  0.300000 Frequency: 7
+ Element:  0.400000 Frequency: 7
+ Element:  0.500000 Frequency: 1
+ Element:  0.600000 Frequency: 1
+ Element:  1.000000 Frequency: 7
+ Element:  1.100000 Frequency: 3
+ Element:  1.200000 Frequency: 5
+ Element:  1.300000 Frequency: 13
+ Element:  1.400000 Frequency: 8
+ Element:  1.500000 Frequency: 12
+ Element:  1.600000 Frequency: 4
+ Element:  1.700000 Frequency: 2
+ Element:  1.800000 Frequency: 12
+ Element:  1.900000 Frequency: 5
+ Element:  2.000000 Frequency: 6
+ Element:  2.100000 Frequency: 6
+ Element:  2.200000 Frequency: 3
+ Element:  2.300000 Frequency: 8
+ Element:  2.400000 Frequency: 3
+ Element:  2.500000 Frequency: 3
+
+Correlation with other numeric columns:
+  With column 'Id': 0.899759
+  With column 'SepalLengthCm': 0.817954
+  With column 'SepalWidthCm': -0.356544
+  With column 'PetalLengthCm': 0.962757
+
+-------------------------------------------------------------
+Column Species:
+-------------------------------------------------------------
+
+Non numeric column
+
+ Element:  Iris-setosa Frequency: 50
+ Element:  Iris-versicolor Frequency: 50
+ Element:  Iris-virginica Frequency: 50
