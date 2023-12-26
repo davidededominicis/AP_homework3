@@ -28,7 +28,7 @@ set(pybind11_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ext/pybind_installation/share/cmak
 find_package(pybind11 REQUIRED)
 
 ### compile csvparser.so
-pybind11_add_module(csvparser src/csvparser.hpp src/csvparser.cpp)
+pybind11_add_module(csvparser src/csvparser.hpp src/csvparser.cpp src/csv_bind.cpp)
 
 ### include header files for the library
 target_include_directories(csvparser PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)

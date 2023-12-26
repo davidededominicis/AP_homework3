@@ -129,6 +129,30 @@ csvparser/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/csvparser.dir/build.make CMakeFiles/csvparser.dir/build
 .PHONY : csvparser/fast
 
+src/csv_bind.o: src/csv_bind.cpp.o
+.PHONY : src/csv_bind.o
+
+# target to build an object file
+src/csv_bind.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/csvparser.dir/build.make CMakeFiles/csvparser.dir/src/csv_bind.cpp.o
+.PHONY : src/csv_bind.cpp.o
+
+src/csv_bind.i: src/csv_bind.cpp.i
+.PHONY : src/csv_bind.i
+
+# target to preprocess a source file
+src/csv_bind.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/csvparser.dir/build.make CMakeFiles/csvparser.dir/src/csv_bind.cpp.i
+.PHONY : src/csv_bind.cpp.i
+
+src/csv_bind.s: src/csv_bind.cpp.s
+.PHONY : src/csv_bind.s
+
+# target to generate assembly for a file
+src/csv_bind.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/csvparser.dir/build.make CMakeFiles/csvparser.dir/src/csv_bind.cpp.s
+.PHONY : src/csv_bind.cpp.s
+
 src/csvparser.o: src/csvparser.cpp.o
 .PHONY : src/csvparser.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... csvparser"
+	@echo "... src/csv_bind.o"
+	@echo "... src/csv_bind.i"
+	@echo "... src/csv_bind.s"
 	@echo "... src/csvparser.o"
 	@echo "... src/csvparser.i"
 	@echo "... src/csvparser.s"

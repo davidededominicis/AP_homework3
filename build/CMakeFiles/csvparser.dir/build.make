@@ -83,17 +83,33 @@ CMakeFiles/csvparser.dir/src/csvparser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/csvparser.dir/src/csvparser.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/src/csvparser.cpp -o CMakeFiles/csvparser.dir/src/csvparser.cpp.s
 
+CMakeFiles/csvparser.dir/src/csv_bind.cpp.o: CMakeFiles/csvparser.dir/flags.make
+CMakeFiles/csvparser.dir/src/csv_bind.cpp.o: /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/src/csv_bind.cpp
+CMakeFiles/csvparser.dir/src/csv_bind.cpp.o: CMakeFiles/csvparser.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/csvparser.dir/src/csv_bind.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/csvparser.dir/src/csv_bind.cpp.o -MF CMakeFiles/csvparser.dir/src/csv_bind.cpp.o.d -o CMakeFiles/csvparser.dir/src/csv_bind.cpp.o -c /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/src/csv_bind.cpp
+
+CMakeFiles/csvparser.dir/src/csv_bind.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/csvparser.dir/src/csv_bind.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/src/csv_bind.cpp > CMakeFiles/csvparser.dir/src/csv_bind.cpp.i
+
+CMakeFiles/csvparser.dir/src/csv_bind.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/csvparser.dir/src/csv_bind.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/src/csv_bind.cpp -o CMakeFiles/csvparser.dir/src/csv_bind.cpp.s
+
 # Object files for target csvparser
 csvparser_OBJECTS = \
-"CMakeFiles/csvparser.dir/src/csvparser.cpp.o"
+"CMakeFiles/csvparser.dir/src/csvparser.cpp.o" \
+"CMakeFiles/csvparser.dir/src/csv_bind.cpp.o"
 
 # External object files for target csvparser
 csvparser_EXTERNAL_OBJECTS =
 
 csvparser.cpython-311-x86_64-linux-gnu.so: CMakeFiles/csvparser.dir/src/csvparser.cpp.o
+csvparser.cpython-311-x86_64-linux-gnu.so: CMakeFiles/csvparser.dir/src/csv_bind.cpp.o
 csvparser.cpython-311-x86_64-linux-gnu.so: CMakeFiles/csvparser.dir/build.make
 csvparser.cpython-311-x86_64-linux-gnu.so: CMakeFiles/csvparser.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared module csvparser.cpython-311-x86_64-linux-gnu.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared module csvparser.cpython-311-x86_64-linux-gnu.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/csvparser.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/strip /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/csvparser.cpython-311-x86_64-linux-gnu.so
 
