@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dcsvparser_EXPORTS
 
-CXX_INCLUDES = -I/boost/include -I/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/src -isystem /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/ext/pybind_installation/include -isystem /usr/include/python3.11
+CXX_INCLUDES = -I/home/andreg/Desktop/uni/advanced_programming/homeworks/extlib/boost/include -I/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/src -isystem /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/ext/pybind_installation/include -isystem /usr/include/python3.11
 
 CXX_FLAGS = -fPIC -fvisibility=hidden -std=c++17 -Wall -Wextra -Wpedantic -flto -fno-fat-lto-objects
 
