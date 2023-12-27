@@ -221,8 +221,11 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//No help, variable specified on the command line.
-EIGEN_PATH:UNINITIALIZED=/usr/local/include/eigen3
+//Some user specified option
+EIGEN_PATH:STRING=/usr/local/include/eigen3
+
+//The directory containing a CMake configuration file for Eigen3.
+Eigen3_DIR:PATH=/usr/local/share/eigen3/cmake
 
 //Overwrite cached values read from Python library (classic search).
 // Turn off if cross-compiling and manually setting these values.

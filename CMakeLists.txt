@@ -35,3 +35,22 @@ target_include_directories(csvparser PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 ### link against Boost and any other necessary libraries
 target_link_libraries(csvparser PRIVATE ${Boost_LIBRARIES})
+
+#################################################
+# COMPILE ODESOLVER AS A MODULE
+#################################################
+
+set(EIGEN_PATH "option_value" CACHE STRING "Some user specified option")
+find_package(Eigen3 PATHS ${EIGEN_PATH} REQUIRED)
+if(Eigen3_FOUND)
+	message("Eigen3 found")
+else()
+	message(FATAL_ERROR "Eigen3 not found")
+endif()
+### compile odesolver.so
+
+pybind11_add_module(odesolver src/odesolver.cpp src/odesolver.hpp src/ode_bind.cpp)
+
+
+target_include_directories(odesolver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${EIGEN3_INCLUDE_DIR})
+message("${EIGEN3_INCLUDE_DIR}")
