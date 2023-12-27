@@ -49,8 +49,8 @@ else()
 endif()
 ### compile odesolver.so
 
-pybind11_add_module(odesolver src/odesolver.cpp src/odesolver.hpp src/ode_bind.cpp)
+# pybind11_add_module(odesolver src/odesolver.cpp src/odesolver.hpp src/ode_bind.cpp)
 
 
-target_include_directories(odesolver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${EIGEN3_INCLUDE_DIR})
+#target_include_directories(odesolver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${EIGEN3_INCLUDE_DIR})
 message("${EIGEN3_INCLUDE_DIR}")
