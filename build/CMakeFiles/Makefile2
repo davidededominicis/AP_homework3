@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build
 
 # The main recursive "all" target.
 all: CMakeFiles/csvparser.dir/all
+all: CMakeFiles/odesolver.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/csvparser.dir/clean
+clean: CMakeFiles/odesolver.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -99,6 +101,32 @@ csvparser: CMakeFiles/csvparser.dir/rule
 CMakeFiles/csvparser.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/csvparser.dir/build.make CMakeFiles/csvparser.dir/clean
 .PHONY : CMakeFiles/csvparser.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/odesolver.dir
+
+# All Build rule for target.
+CMakeFiles/odesolver.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odesolver.dir/build.make CMakeFiles/odesolver.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odesolver.dir/build.make CMakeFiles/odesolver.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles --progress-num=4,5,6 "Built target odesolver"
+.PHONY : CMakeFiles/odesolver.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/odesolver.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/odesolver.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andreg/Desktop/uni/ap/homeworks/hm3/AP_homework3/build/CMakeFiles 0
+.PHONY : CMakeFiles/odesolver.dir/rule
+
+# Convenience name for target.
+odesolver: CMakeFiles/odesolver.dir/rule
+.PHONY : odesolver
+
+# clean rule for target.
+CMakeFiles/odesolver.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odesolver.dir/build.make CMakeFiles/odesolver.dir/clean
+.PHONY : CMakeFiles/odesolver.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
