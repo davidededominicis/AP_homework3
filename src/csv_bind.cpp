@@ -19,5 +19,5 @@ PYBIND11_MODULE(csvparser, m) {
 		.def("correlation_analysis", &CSVParser::correlation_analysis)
 		.def("countFrequency", &CSVParser::countFrequency)
 		.def("summary", &CSVParser::summary)
-		.def("classifcation", &CSVParser::classification);
+		.def("classification", &CSVParser::classification);
 }
