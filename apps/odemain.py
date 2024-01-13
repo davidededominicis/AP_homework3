@@ -4,7 +4,13 @@ import odesolver
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import os 
 from scipy.integrate import solve_ivp
+
+if not os.path.exists("./plots"):
+    os.mkdir("./plots")
+if not os.path.exists("./solutions"):
+    os.mkdir("./solutions")
 
 class ODESolverpy:
     def __init__(self, fun, t_start, t_end, y0):
@@ -38,21 +44,6 @@ class ODESolverpy:
         return solution
 
 
-    def plot_solution(self, solution, filenamepng):
-        plt.figure(figsize=(10, 6))
-        for i in range(len(solution.Y[0])):
-            plt.plot(solution.t, [y[i] for y in solution.Y], label="y")
-            #repeat the loop for every dimension of the solution
-
-        plt.title(f"Method - ODE Solution")
-        plt.xlabel("Time")
-        plt.ylabel("Solution")
-        plt.legend(loc='best')
-        if filenamepng:
-            plt.savefig(filenamepng)
-            print(f"Plot saved as {filenamepng}")
-        else:
-            plt.show()
     def RK4scipy_solve(self, filenametxt):
         t1=time.time()
         solution = solve_ivp(fun=self.fun, t_span=(self.t_start, self.t_end), y0=self.y0, method='RK45', dense_output=True)
@@ -68,17 +59,13 @@ class ODESolverpy:
                 f.write(f"{ti} , {', '.join(map(str, yi))}\n")
 
         return t, y
-
-
-    # -------------------- Plot the solution ----------------------------------------
-    def RK4scipy_plot(self, solution, filenamepng):
-        t, y = solution
-
+    
+    def plot_RK4_py(self, t, y, filenamepng):
         plt.figure(figsize=(10, 6))
         for i in range(len(self.y0)):
             plt.plot(t, y[i], label=f"y{i}")
 
-        plt.title(f" RK4 - ODE Solution (SciPy)")
+        plt.title(" RK4 - ODE Solution (SciPy)")
         plt.xlabel("Time")
         plt.ylabel("Solution")
         plt.legend(loc='best')
@@ -89,31 +76,32 @@ class ODESolverpy:
             plt.show()
 
 
-    def accuracy_test(self,method, analytic_solution, n):
-        if method == 'RK4':
-            solution = self.c.RK4(n)  # Using RK4 method for accuracy test
-        elif method == 'midpoint':
-            solution = self.c.midpoint(n)
-        elif method == 'euler':
-            solution = self.c.euler(n)
-        max_error = self.c.accuracy(solution, analytic_solution)
-        print(f"Max Error of method {method}: {max_error}")
-
-
     def euler(self, n):
-       t1 = time.time()
-       h = (self.t_end - self.t_start) / n
-       t = np.linspace(self.t_start, self.t_end, n+1)
-       Y = np.zeros((n+1, len(self.y0)))
-       Y[0] = self.y0
-       for j in range(n):
-           k1 = self.fun(t[j], Y[j])
-           Y[j+1] = Y[j] + h * k1
-       t2 = time.time()
-       print(f"Euler implemented in python run in: {t2-t1} seconds")
-       return {'t': t, 'Y': Y}
-    
+        t1 = time.time()
+        h = (self.t_end - self.t_start) / n
+        t = np.linspace(self.t_start, self.t_end, n+1)
+        Y = np.zeros((n+1, len(self.y0)))
+        Y[0] = self.y0
+        for j in range(n):
+            k1 = self.fun(t[j], Y[j])
+            Y[j+1] = Y[j] + h * k1
+        t2 = time.time()
+        print(f"Euler implemented in python run in: {t2-t1} seconds")
+        return t, Y
 
+    def plot_euler_py(self, t,Y , filenamepng):
+        for i in range(len(Y[0])):
+            plt.plot(t, Y[:, i], label=f'y{i+1}')
+        plt.title("Euler solution")
+        plt.xlabel('Time')
+        plt.ylabel('Solution')
+        plt.legend()
+        if filenamepng:
+            plt.savefig(filenamepng)
+           # print(f"Plot saved as {filenamepng}")
+        else:
+            plt.show()
+        
     def midpoint(self, n):
       t1 = time.time()
       h = (self.t_end - self.t_start) / n
@@ -126,7 +114,48 @@ class ODESolverpy:
           Y[j+1] = Y[j] + h * k2
           t2 = time.time()
       print(f"Midpoint implemented in python run in: {t2-t1} seconds")
-      return {'t': t, 'Y': Y}
+      return t, Y
+    
+
+    def plot_midpoint_py(self, t, Y, filenamepng):
+        for i in range(len(Y[0])):
+            plt.plot(t, Y[:, i], label=f'y{i+1}')
+        plt.title("Midpoint solution")
+        plt.xlabel('Time')
+        plt.ylabel('Solution')
+        plt.legend()
+        if filenamepng:
+            plt.savefig(filenamepng)
+        else:
+            plt.show()
+
+    
+    def plot_solution(self, solution, filenamepng):
+        plt.figure(figsize=(10, 6))
+        for i in range(len(solution.Y[0])):
+            plt.plot(solution.t, [y[i] for y in solution.Y], label="y")
+            #repeat the loop for every dimension of the solution
+
+        plt.title(f"Method - ODE Solution")
+        plt.xlabel("Time")
+        plt.ylabel("Solution")
+        plt.legend(loc='best')
+        if filenamepng:
+            plt.savefig(filenamepng)
+            print(f"Plot saved as {filenamepng}")
+        else:
+            plt.show()
+
+    def accuracy_test(self,method, analytic_solution, n):
+        if method == 'RK4':
+            solution = self.c.RK4(n)  # Using RK4 method for accuracy test
+        elif method == 'midpoint':
+            solution = self.c.midpoint(n)
+        elif method == 'euler':
+            solution = self.c.euler(n)
+        max_error = self.c.accuracy(solution, analytic_solution)
+        print(f"Max Error of method {method}: {max_error}")
+
 
     def efficiency_test(self, method, n):
         time_taken = self.c.efficiency(method, n)
@@ -151,6 +180,9 @@ class ODESolverpy:
             solution = self.c.euler(n)
         convergence = self.c.convergence(solution, analytic_solution)
         print(f"Convergence of method {method}: {convergence}")
+
+
+
 
 #------------------------------------ Test della classe ODESolverpy---------------------------------------
 def fun(t, y):
@@ -199,21 +231,21 @@ solver2 = ODESolverpy(fun2, t_start2, t_end2, y02)
 
 # Esempi di test
 
-solutionRK4=solver.solve(method='RK4', n=n1, filenametxt='RK4_solution.txt')
-solutionRK4_dim2=solver2.solve(method='RK4', n=n2, filenametxt='RK4_solution_2dim.txt')
-solver.plot_solution(solutionRK4, filenamepng='RK4_solution.png')
-solver2.plot_solution(solutionRK4_dim2, filenamepng='RK4_solution_2dim.png')
+solutionRK4=solver.solve(method='RK4', n=n1, filenametxt='./solutions/RK4_solution.txt')
+solutionRK4_dim2=solver2.solve(method='RK4', n=n2, filenametxt='./solutions/RK4_solution_2dim.txt')
+solver.plot_solution(solutionRK4, filenamepng='./plots/RK4_solution.png')
+solver2.plot_solution(solutionRK4_dim2, filenamepng='./plots/RK4_solution_2dim.png')
 
 
-solutioneuler=solver.solve(method='euler', n=n1, filenametxt='euler_solution.txt' )
-solutioneuler_dim2=solver2.solve(method='euler', n=n2, filenametxt='euler_solution_2dim.txt')
-solver.plot_solution(solutioneuler, filenamepng='euler_solution.png')   
-solver2.plot_solution(solutioneuler_dim2, filenamepng='euler_solution_2dim.png')
+solutioneuler=solver.solve(method='euler', n=n1, filenametxt='./solutions/euler_solution.txt' )
+solutioneuler_dim2=solver2.solve(method='euler', n=n2, filenametxt='./solutions/euler_solution_2dim.txt')
+solver.plot_solution(solutioneuler, filenamepng='./plots/euler_solution.png')   
+solver2.plot_solution(solutioneuler_dim2, filenamepng='./plots/euler_solution_2dim.png')
 
-solutionmidpoint=solver.solve(method='midpoint', n=n1, filenametxt='midpoint_solution.txt')
-solutionmidpoint_dim2=solver2.solve(method='midpoint', n=n2, filenametxt='midpoint_solution_2dim.txt')
-solver.plot_solution(solutionmidpoint, filenamepng='midpoint_solution.png')
-solver2.plot_solution(solutionmidpoint_dim2, filenamepng='midpoint_solution_2dim.png')
+solutionmidpoint=solver.solve(method='midpoint', n=n1, filenametxt='./solutions/midpoint_solution.txt')
+solutionmidpoint_dim2=solver2.solve(method='midpoint', n=n2, filenametxt='./solutions/midpoint_solution_2dim.txt')
+solver.plot_solution(solutionmidpoint, filenamepng='./plots/midpoint_solution.png')
+solver2.plot_solution(solutionmidpoint_dim2, filenamepng='./plots/midpoint_solution_2dim.png')
 
 
 print("\n-------------------------ACCURACY---------------------------------------------\n")
@@ -230,21 +262,25 @@ solver2.accuracy_test(method='midpoint', analytic_solution=analytic2, n=n2)
 print("\n-------------------------EFFICIENCY---------------------------------------------\n")
 
 solver.efficiency_test(method='RK4', n=n1)
-solutionRK4scpiy=solver.RK4scipy_solve( filenametxt='RK4_solution_scipy.png')
-solver.RK4scipy_plot(solutionRK4scpiy, filenamepng='RK4_solution_scipy_scipy.png')
+solRK4pyt, solRK4pyY=solver.RK4scipy_solve( filenametxt='./solutions/RK4_solution_scipy.txt')
+solver.plot_RK4_py(solRK4pyt, solRK4pyY, filenamepng='./plots/RK4_solution_scipy_scipy.png')
 solver2.efficiency_test(method='RK4', n=n2)
-solutionRK42dimscipy=solver2.RK4scipy_solve( filenametxt='RK4_solution_scipy.png')
-solver2.RK4scipy_plot(solutionRK42dimscipy, filenamepng='RK4_solution_scipy_2dim.png')
+solRK4pyt_2dim, solRK4pyY_2dim=solver2.RK4scipy_solve( filenametxt='./solutions/RK4_solution_scipy_2dim.txt')
+#solver2.plot_RK4_py(solRK4pyt, solRK4pyY, filenamepng='./plots/RK4_solution_scipy_2dim.png')
 
 solver.efficiency_test(method='euler', n=n1)
-solver.euler(n=n1)
+soleulpyt, soleulpyY=solver.euler(n=n1)
+solver.plot_euler_py(soleulpyt, soleulpyY, filenamepng='./plots/euler_solution_py.png')
 solver2.efficiency_test(method='euler', n=n2)
-solver2.euler(n=n2)
+soleulpyt_2dim, soleulpyY_2dim=solver2.euler(n=n2)
+solver2.plot_euler_py(soleulpyt_2dim, soleulpyY_2dim, filenamepng='./plots/euler_solution_py_2dim.png')
 
 solver.efficiency_test(method='midpoint', n=n1)
-solver.midpoint(n=n1)
+solmidpyt,solmidpyY=solver.midpoint(n=n1)
+solver.plot_midpoint_py(solmidpyt,solmidpyY, filenamepng='./plots/midpoint_solution_py.png')
 solver2.efficiency_test(method='midpoint', n=n2)
-solver2.midpoint(n=n2)
+solmidpyt_2dim,solmidpyY_2dim=solver2.midpoint(n=n2)
+solver2.plot_midpoint_py(solmidpyt_2dim,solmidpyY_2dim, filenamepng='./plots/midpoint_solution_py_2dim.png')    
 
 print("\n-------------------------STABILITY---------------------------------------------\n")
 
