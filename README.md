@@ -3,14 +3,6 @@
 ## GROUP MEMBERS
 Sara Carpenè – saracarpene01@gmail.com Davide De Dominicis – dedominicis2001@gmail.com Andrea Gottardi – andreagottardi24@gmail.com
 
-## Indicazione generali DA TOGLIERE
-
-main task:
-provide python bindings using pybind11
-the c++ code is the backend
-
-pybind requires cmake build system
-
 ## CODE ORGANIZATION
 
 
@@ -31,3 +23,7 @@ The result will be saved in a build directory inside the main project directory.
 
 To test the executables on a predetermined example execute *./testbuild.sh*. In order to change the dataset on which maincsv is executed is necessary to modify the given dataset in the testbuild.sh file or execute the command *./maincsv datasetname.csv outputfile_name.
 ## INDIVIDUAL CONTRIBUTION
+- pybind11 bindings: Gottardi
+- python and c++ integration: Carpenè, De Dominicis
+- functionalities and performance testing: Carpené, De Dominicis
+- project organization, scripts, CMake: Gottardi
