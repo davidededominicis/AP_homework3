@@ -43,6 +43,22 @@ class ODESolverpy:
             raise ValueError("Invalid method. Choose between 'RK4', 'midpoint', or 'euler'.")
         return solution
 
+    def plot_solution(self, solution, filenamepng):
+        '''non toccare è quello di c++'''
+        plt.figure(figsize=(10, 6))
+        for i in range(len(solution.Y[0])):
+            plt.plot(solution.t, [y[i] for y in solution.Y], label="y")
+            #repeat the loop for every dimension of the solution
+
+        plt.title(f"Method - ODE Solution")
+        plt.xlabel("Time")
+        plt.ylabel("Solution")
+        plt.legend(loc='best')
+        if filenamepng:
+            plt.savefig(filenamepng)
+            print(f"Plot saved as {filenamepng}")
+        else:
+            plt.show()
 
     def RK4scipy_solve(self, filenametxt):
         t1=time.time()
@@ -59,22 +75,6 @@ class ODESolverpy:
                 f.write(f"{ti} , {', '.join(map(str, yi))}\n")
 
         return t, y
-    
-    def plot_RK4_py(self, t, y, filenamepng):
-        plt.figure(figsize=(10, 6))
-        for i in range(len(self.y0)):
-            plt.plot(t, y[i], label=f"y{i}")
-
-        plt.title(" RK4 - ODE Solution (SciPy)")
-        plt.xlabel("Time")
-        plt.ylabel("Solution")
-        plt.legend(loc='best')
-        if filenamepng:
-            plt.savefig(filenamepng)
-            print(f"Plot saved as {filenamepng}")
-        else:
-            plt.show()
-
 
     def euler(self, n):
         t1 = time.time()
@@ -89,16 +89,23 @@ class ODESolverpy:
         print(f"Euler implemented in python run in: {t2-t1} seconds")
         return t, Y
 
-    def plot_euler_py(self, t,Y , filenamepng):
-        for i in range(len(Y[0])):
-            plt.plot(t, Y[:, i], label=f'y{i+1}')
-        plt.title("Euler solution")
+    def plot_py(self, method , t,Y , filenamepng):
+        if method == 'RK4':
+            for i in range(len(self.y0)):
+                plt.plot(t, Y[i], label=f"y{i}")
+
+        elif method == 'midpoint' or method == 'euler':
+            for i in range(len(Y[0])):
+                plt.plot(t, Y[:, i], label=f'y{i+1}')
+        else:
+            raise ValueError("Invalid method. Choose between 'RK4', 'midpoint', or 'euler'.")       
+        
+        plt.title(f"Method {method} - ODE solution")
         plt.xlabel('Time')
         plt.ylabel('Solution')
         plt.legend()
         if filenamepng:
             plt.savefig(filenamepng)
-           # print(f"Plot saved as {filenamepng}")
         else:
             plt.show()
         
@@ -117,34 +124,6 @@ class ODESolverpy:
       return t, Y
     
 
-    def plot_midpoint_py(self, t, Y, filenamepng):
-        for i in range(len(Y[0])):
-            plt.plot(t, Y[:, i], label=f'y{i+1}')
-        plt.title("Midpoint solution")
-        plt.xlabel('Time')
-        plt.ylabel('Solution')
-        plt.legend()
-        if filenamepng:
-            plt.savefig(filenamepng)
-        else:
-            plt.show()
-
-    
-    def plot_solution(self, solution, filenamepng):
-        plt.figure(figsize=(10, 6))
-        for i in range(len(solution.Y[0])):
-            plt.plot(solution.t, [y[i] for y in solution.Y], label="y")
-            #repeat the loop for every dimension of the solution
-
-        plt.title(f"Method - ODE Solution")
-        plt.xlabel("Time")
-        plt.ylabel("Solution")
-        plt.legend(loc='best')
-        if filenamepng:
-            plt.savefig(filenamepng)
-            print(f"Plot saved as {filenamepng}")
-        else:
-            plt.show()
 
     def accuracy_test(self,method, analytic_solution, n):
         if method == 'RK4':
@@ -263,24 +242,27 @@ print("\n-------------------------EFFICIENCY------------------------------------
 
 solver.efficiency_test(method='RK4', n=n1)
 solRK4pyt, solRK4pyY=solver.RK4scipy_solve( filenametxt='./solutions/RK4_solution_scipy.txt')
-solver.plot_RK4_py(solRK4pyt, solRK4pyY, filenamepng='./plots/RK4_solution_scipy_scipy.png')
+solver.plot_py('RK4',solRK4pyt, solRK4pyY, filenamepng='./plots/RK4_solution_scipy_scipy.png')
+
 solver2.efficiency_test(method='RK4', n=n2)
 solRK4pyt_2dim, solRK4pyY_2dim=solver2.RK4scipy_solve( filenametxt='./solutions/RK4_solution_scipy_2dim.txt')
-#solver2.plot_RK4_py(solRK4pyt, solRK4pyY, filenamepng='./plots/RK4_solution_scipy_2dim.png')
+solver2.plot_py('RK4',solRK4pyt_2dim, solRK4pyY_2dim, filenamepng='./plots/RK4_solution_scipy_2dim.png')
 
 solver.efficiency_test(method='euler', n=n1)
 soleulpyt, soleulpyY=solver.euler(n=n1)
-solver.plot_euler_py(soleulpyt, soleulpyY, filenamepng='./plots/euler_solution_py.png')
+solver.plot_py('euler',soleulpyt, soleulpyY, filenamepng='./plots/euler_solution_py.png')
+
 solver2.efficiency_test(method='euler', n=n2)
 soleulpyt_2dim, soleulpyY_2dim=solver2.euler(n=n2)
-solver2.plot_euler_py(soleulpyt_2dim, soleulpyY_2dim, filenamepng='./plots/euler_solution_py_2dim.png')
+solver2.plot_py('euler',soleulpyt_2dim, soleulpyY_2dim, filenamepng='./plots/euler_solution_py_2dim.png')
 
 solver.efficiency_test(method='midpoint', n=n1)
 solmidpyt,solmidpyY=solver.midpoint(n=n1)
-solver.plot_midpoint_py(solmidpyt,solmidpyY, filenamepng='./plots/midpoint_solution_py.png')
+solver.plot_py('midpoint',solmidpyt,solmidpyY, filenamepng='./plots/midpoint_solution_py.png')
+
 solver2.efficiency_test(method='midpoint', n=n2)
 solmidpyt_2dim,solmidpyY_2dim=solver2.midpoint(n=n2)
-solver2.plot_midpoint_py(solmidpyt_2dim,solmidpyY_2dim, filenamepng='./plots/midpoint_solution_py_2dim.png')    
+solver2.plot_py('midpoint',solmidpyt_2dim,solmidpyY_2dim, filenamepng='./plots/midpoint_solution_py_2dim.png')    
 
 print("\n-------------------------STABILITY---------------------------------------------\n")
 
