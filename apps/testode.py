@@ -2,7 +2,7 @@ import odesolverpy
 import numpy as np
 
 
-#------------------------------------ Test della classe ODESolverpy---------------------------------------
+#------------------------------------ test functions (1/2 dimensions)---------------------------------------
 def fun(t, y):
     a = 2
     dy = -a * y[0] * t
@@ -30,7 +30,7 @@ def analytic2(t):
    return y
 #--------------------------------------------------------------------------------------------------------
 
-# Parametri del problema
+# Parameters definition
 n1=70
 n2=100
 
@@ -43,17 +43,16 @@ t_end2=50
 y0 = np.array([1.0])
 y02= np.array([1.0, 0.0])
 
-# Creazione dell'istanza di ODESolverpy
+# Building of the instances to solve the Cauchy problem
 solver = odesolverpy.ODESolverpy(fun, t_start, t_end, y0)
 solver2 = odesolverpy.ODESolverpy(fun2, t_start2, t_end2, y02)
 
-# Esempi di test
+# Solving and plotting
 
 solutionRK4=solver.solve(method='RK4', n=n1, filenametxt='./solutions/RK4_solution.txt')
 solutionRK4_dim2=solver2.solve(method='RK4', n=n2, filenametxt='./solutions/RK4_solution_2dim.txt')
 solver.plot_solution(solutionRK4, filenamepng='./plots/RK4_solution.png')
 solver2.plot_solution(solutionRK4_dim2, filenamepng='./plots/RK4_solution_2dim.png')
-
 
 solutioneuler=solver.solve(method='euler', n=n1, filenametxt='./solutions/euler_solution.txt' )
 solutioneuler_dim2=solver2.solve(method='euler', n=n2, filenametxt='./solutions/euler_solution_2dim.txt')
