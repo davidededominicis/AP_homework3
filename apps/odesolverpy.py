@@ -14,8 +14,8 @@ if not os.path.exists("./solutions"):
 
 class ODESolverpy:
     def __init__(self, fun, t_start, t_end, y0):
-        '''construct the ODESolverpy class based on the ODESolver class implemented in c++.
-            An instance of ODESolverpy represent a Cauchy problem'''
+        '''It constructs the ODESolverpy class based on the ODESolver class implemented in c++.
+            An instance of ODESolverpy represents a Cauchy problem'''
         self.c = odesolver.ODESolver(fun, t_start, t_end, y0)
         self.fun = fun
         self.t_start = t_start
@@ -23,7 +23,7 @@ class ODESolverpy:
         self.y0 = y0
 
     def solve(self, method, n, filenametxt):
-        '''solve the Cauchy problem with the specified method and save the result in a txt file'''
+        '''It solves the Cauchy problem with the specified method and saves the result in a txt file'''
         if method == 'RK4':
             solution = self.c.RK4(n)
             with open(filenametxt, 'w') as f:
@@ -47,7 +47,7 @@ class ODESolverpy:
         return solution
 
     def plot_solution(self, solution, filenamepng):
-        '''non toccare è quello di c++'''
+        '''It plots the solution of the Cauchy problem made with the function solve'''
         plt.figure(figsize=(10, 6))
         for i in range(len(solution.Y[0])):
             plt.plot(solution.t, [y[i] for y in solution.Y], label="y")
