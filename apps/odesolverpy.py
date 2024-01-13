@@ -152,7 +152,7 @@ class ODESolverpy:
         elif method == 'euler':
             solution = self.c.euler(n)
         stability = self.c.stability(method, solution, perturbation)
-        print(f"Stability of {method} with perturbation {perturbation}: {stability}")
+        print(f"Stability of {method} with perturbation {perturbation}: {stability[1]}")
 
     def convergence_test(self, method, analytic_solution,n):
         '''It compute the convergence'''
@@ -164,5 +164,3 @@ class ODESolverpy:
             solution = self.c.euler(n)
         convergence = self.c.convergence(solution, analytic_solution)
         print(f"Convergence of method {method}: {convergence}")
-
-
