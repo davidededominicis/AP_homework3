@@ -16,5 +16,5 @@ fi
 mkdir build
 cd build
 cmake -DBOOST_ROOT=${BOOST_ROOT} -DEIGEN_PATH=${EIGEN_PATH} ..
-make
+make -j4
 cd ..
