@@ -272,55 +272,73 @@ double CSVParser::correlation_analysis(const size_t col_idx1, const size_t col_i
     }
 
 //FREQUENCY COUNT
-map<string, int> CSVParser::countFrequency(const size_t col_idx) const{
-    map<string, int> stringFrequencyMap;
+std::vector<std::pair<string, int>> CSVParser::countFrequency(const size_t col_idx) const{
+  map<string, int> stringFrequencyMap;
 
-        //checks on column index
-        if (col_idx >= dataset.size()) {
-            throw out_of_range("Column index out of range.");
-            return stringFrequencyMap;
-        }
+  // Check the column index
+  if (col_idx >= dataset.size()) {
+      throw out_of_range("Column index out of range.");
+      std::vector<std::pair<string, int>> result;
+      return result;
+  }
 
-        //if dataset[col_idx] is a column of double
-        if (holds_alternative<vector<optional<string>>>(dataset[col_idx])) {
-            const auto& string_column = get<vector<optional<string>>>(dataset[col_idx]);
-           
-            //checks if the column is empty
-            if (string_column.empty()) {
-            throw runtime_error("Column is empty.");
-            return stringFrequencyMap;
-            }
+  // If the column is of type string
+  if (holds_alternative<vector<optional<string>>>(dataset[col_idx])) {
+      const auto& string_column = get<vector<optional<string>>>(dataset[col_idx]);
+     
+      // Check if the column is empty
+      if (string_column.empty()) {
+          throw runtime_error("Column is empty.");
+          std::vector<std::pair<string, int>> result;
+          return result;
+      }
 
-            //fill the frequency map
-            for (const auto& cell : string_column) {
-                if (cell.has_value()) {
-                    string value = cell.value();
-                    stringFrequencyMap[value]++;
-                }
-            }
+      // Fill the frequency map
+      for (const auto& cell : string_column) {
+          if (cell.has_value()) {
+              string value = cell.value();
+              stringFrequencyMap[value]++;
+          }
+      }
 
-            return stringFrequencyMap;
-        }
+      // Convert the map to a vector of pairs
+      std::vector<std::pair<string, int>> stringFrequencyVector;
+      for (const auto& pair : stringFrequencyMap) {
+          stringFrequencyVector.push_back({pair.first, pair.second});
+      }
 
-        //if dataset[col_idx] is a column of double
-        else {
-            const auto& numeric_column = get<vector<optional<double>>>(dataset[col_idx]);
-           
-            //checks if the column is empty
-            if (numeric_column.empty()) {
-            throw runtime_error("Column is empty.");
-            return stringFrequencyMap;
-        }
-            //fill the frequency map
-            for (const auto& cell : numeric_column) {
-                if (cell.has_value()) {
-                    stringFrequencyMap[to_string(cell.value())]++;
-                }
-            }
+      return stringFrequencyVector;
+  }
 
-            return stringFrequencyMap;
-        }
+  // If the column is of type double
+  else {
+      const auto& numeric_column = get<vector<optional<double>>>(dataset[col_idx]);
+     
+      // Check if the column is empty
+      if (numeric_column.empty()) {
+          throw runtime_error("Column is empty.");
+          std::vector<std::pair<string, int>> result;
+          return result;
+      }
+
+      // Fill the frequency map
+      for (const auto& cell : numeric_column) {
+          if (cell.has_value()) {
+              stringFrequencyMap[to_string(cell.value())]++;
+          }
+      }
+
+      // Convert the map to a vector of pairs
+      std::vector<std::pair<string, int>>stringFrequencyVector;
+      for (const auto& pair : stringFrequencyMap) {
+          stringFrequencyVector.push_back({pair.first, pair.second});
+      }
+
+      return stringFrequencyVector;
+  }
 }
+
+
 
 //SUMMARY
 void CSVParser::summary(const string& filename) const{
@@ -341,7 +359,7 @@ void CSVParser::summary(const string& filename) const{
                       << ", Median = " << median_col(i)
                       << ", Std Dev = " << std_dev(i)
                       << ", Variance = " << var_col(i) << "\n"<<"\n";
-                map<string, int> freq = countFrequency(i);
+                std::vector<std::pair<string, int>> freq = countFrequency(i);
                 outFile<<"Frequency count of all the element in the column"<<"\n";
                 for (const auto& pair : freq) {
                     outFile << " Element:  " << pair.first << " Frequency: " << pair.second << endl;
@@ -367,7 +385,7 @@ void CSVParser::summary(const string& filename) const{
                       <<"-------------------------------------------------------------"<<"\n"<<"\n"
                       << "Non numeric column"<<"\n"<<"\n";
                 //compute frequency count
-                map<string, int> freq = countFrequency(i);
+                std::vector<std::pair<string, int>> freq = countFrequency(i);
                 for (const auto& pair : freq) {
                     outFile << " Element:  " << pair.first << " Frequency: " << pair.second<<endl;
                 }
