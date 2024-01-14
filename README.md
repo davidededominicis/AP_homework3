@@ -23,7 +23,7 @@ The ODEsolver class within the module embodies a Cauchy problem. The instantiati
 The Cauchy problem resolution methods implemented are Runge Kutta 4, Euler's method, and the midpoint method. Each of these methods is encapsulated within two functions, the first bearing the name of the method and the second carrying 'csv'. The first function returns an object where various t_n and y1, y2, y3, etc., are stored for future use in other computations. The second function prints the results into a .csv file. Other functions facilitate the assessment of the adequacy of numerical methods.
 ### Note:
 With respect to the previous implementation of this modules (see Homework 2) we modified some methos to ensure correct bindings. 
-For example we defined a customized data type for the solutions ode the method for solving ODEs, and we changed the type of the FrequencyCount function.
+For example we defined a customized data type for the solutions of the method for solving ODEs, and we changed the type of the FrequencyCount function.
 
 
 ## STRUCTURE
