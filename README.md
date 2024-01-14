@@ -11,7 +11,9 @@ Next, we composed Python scripts to demonstrate the functionality of the code an
 ### Brief description of CSVParser
 This module accepts a CSV file as a command line argument. The decision was made to implement the CSVParser as a class. The dataset, the header (containing the names of the columns), and the size of the dataset (corresponding to the number of columns) are stored as private members. The Boost library was chosen to carry out the statistical operations.
 The main function creates an instance of the CSVParser class. When the function read() is invoked, the data in the CSV file is stored in "dataset". The "dataset" is a private member of the "CSVParser" and is a two-dimensional vector that stores information in columns. Each column is homogeneous and can consist of doubles or strings. It can handle missing values using std::optional. For the columns, certain operations can be performed.
+
 -Double columns: mean, variance, median, standard deviation, covariance between two double columns, correlation analysis between two columns, frequency count.
+
 -String columns: frequency count.
 There are two more methods:
 Summary: for all the columns it computes all possible operations (according to column type), and saves the results in the specified file.
