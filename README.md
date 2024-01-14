@@ -7,7 +7,8 @@ Sara Carpenè – saracarpene01@gmail.com Davide De Dominicis – dedominicis200
 We created the bindings for c++ and python integration using pybind11. 
 Initially, we leveraged bindings to implement in Python the classes for the CSV parser and the ODE solver from the previous assignment. We enhanced these classes with functions to replicate the results achieved with the C++ version, but using Python libraries and custom functions developed by us.
 Next, we composed Python scripts to demonstrate the functionality of the code and to contrast the efficiency of the Python and C++ implementations in terms of execution time. To accomplish this, we harnessed Python's advanced features, such as scientific computing libraries and decorators.
-#Brief description of CSVParser
+
+# Brief description of CSVParser
 This module accepts a CSV file as a command line argument. The decision was made to implement the CSVParser as a class. The dataset, the header (containing the names of the columns), and the size of the dataset (corresponding to the number of columns) are stored as private members. The Boost library was chosen to carry out the statistical operations.
 The main function creates an instance of the CSVParser class. When the function read() is invoked, the data in the CSV file is stored in "dataset". The "dataset" is a private member of the "CSVParser" and is a two-dimensional vector that stores information in columns. Each column is homogeneous and can consist of doubles or strings. It can handle missing values using std::optional. For the columns, certain operations can be performed.
 -Double columns: mean, variance, median, standard deviation, covariance between two double columns, correlation analysis between two columns, frequency count.
@@ -16,11 +17,11 @@ There are two more methods:
 Summary: for all the columns it computes all possible operations (according to column type), and saves the results in the specified file.
 Classification: allows to find the rows where a wanted word appears and save the results in a specified txt file. You need to indicate the index of the column in which you want to search for the wanted word.
 
-#Brief description of the ODESolver class
+# Brief description of the ODESolver class
 The ODEsolver class within the module embodies a Cauchy problem. The instantiation of this class necessitates the specification of the differential equation to be resolved, the initial point, and the interval within which the solution must be computed. The Eigen library was employed to conduct operations involving vectors.
 
 The Cauchy problem resolution methods implemented are Runge Kutta 4, Euler's method, and the midpoint method. Each of these methods is encapsulated within two functions, the first bearing the name of the method and the second carrying 'csv'. The first function returns an object where various t_n and y1, y2, y3, etc., are stored for future use in other computations. The second function prints the results into a .csv file. Other functions facilitate the assessment of the adequacy of numerical methods.
- #Note:
+# Note:
 With respect to the previous implementation of this modules (see Homework 2) we modified some methos to ensure correct bindings. 
 For example we defined a customized data type for the solutions ode the method for solving ODEs, and we changed the type of the FrequencyCount function.
 
