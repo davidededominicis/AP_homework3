@@ -46,7 +46,8 @@ class ODESolverpy:
             raise ValueError("Invalid method. Choose between 'RK4', 'midpoint', or 'euler'.")
         return solution
 
-    def plot_solution(self, solution, filenamepng=None):
+    @staticmethod
+    def plot_solution(solution, filenamepng=None):
         '''It plots the solution of the Cauchy problem made with the function solve.
             Solution is given by the c++ code binded'''
         plt.figure(figsize=(10, 6))
@@ -106,21 +107,22 @@ class ODESolverpy:
         print(f"Midpoint implemented in python run in: {t2-t1} seconds")
         return t, Y
 
-    def plot_py(self, method , t,Y , filenamepng):
+    def plot_py(self, method, t, Y, filenamepng):
         '''It plots the solution made with RK4scipy_solve or euler or midpoint'''
         if method == 'RK4':
             for i in range(len(self.y0)):
-                plt.plot(t, Y[i], label=f"y{i}")
-
+                plt.plot(t, Y[i], label=f"y{i+1}")
         elif method == 'midpoint' or method == 'euler':
             for i in range(len(Y[0])):
-                plt.plot(t, Y[:, i], label=f'y{i+1}')
+                plt.plot(t, Y[:, i], label=f"y{i+1}")
         else:
-            raise ValueError("Invalid method. Choose between 'RK4', 'midpoint', or 'euler'.")       
+            raise ValueError("Invalid method. Choose between 'RK4', 'midpoint', or 'euler'.")
+            
         plt.title(f"Method {method} - ODE solution")
         plt.xlabel('Time')
         plt.ylabel('Solution')
         plt.legend()
+        
         if filenamepng:
             plt.savefig(filenamepng)
         else:
