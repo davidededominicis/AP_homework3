@@ -130,7 +130,7 @@ ODESolver::ODESolver(function<VectorXd(double, VectorXd)> fun, double t_start, d
 
 }
 
-  ODESolution ODESolver::euler(const unsigned int n) {
+ODESolution ODESolver::euler(const unsigned int n) {
     
     const double h = (t_end - t_start) / n;
     VectorXd t(n+1);
@@ -151,6 +151,7 @@ ODESolver::ODESolver(function<VectorXd(double, VectorXd)> fun, double t_start, d
     res.Y = Y;
     return res;
   }
+
 
   void ODESolver::euler_csv(unsigned int n,const string filename) {
     const double h = (t_end - t_start) / n;
