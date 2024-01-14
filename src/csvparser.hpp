@@ -47,7 +47,7 @@ public:
 
 	//FREQUENCY COUNT
 	//The function counts how many times each element appears in the specified column.
-  map<string, int> countFrequency(const size_t col_idx) const;
+  	std::vector<std::pair<string, int>> countFrequency(const size_t col_idx) const;
 
 	//SUMMARY
 	//Compute frequency count for every element in every column. 
