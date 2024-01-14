@@ -49,20 +49,20 @@ solver2 = odesolverpy.ODESolverpy(fun2, t_start2, t_end2, y02)
 
 # Solving and plotting
 
-solutionRK4=solver.solve(method='RK4', n=n1, filenametxt='./solutions/RK4_solution.txt')
-solutionRK4_dim2=solver2.solve(method='RK4', n=n2, filenametxt='./solutions/RK4_solution_2dim.txt')
-solver.plot_solution(solutionRK4, filenamepng='./plots/RK4_solution.png')
-solver2.plot_solution(solutionRK4_dim2, filenamepng='./plots/RK4_solution_2dim.png')
+solutionRK4=solver.solve(method='RK4', n=n1, filenametxt='./solutions_ode/RK4_solution.txt')
+solutionRK4_dim2=solver2.solve(method='RK4', n=n2, filenametxt='./solutions_ode/RK4_solution_2dim.txt')
+solver.plot_solution(solutionRK4, filenamepng='./plots_ode/RK4_solution.png')
+solver2.plot_solution(solutionRK4_dim2, filenamepng='./plots_ode/RK4_solution_2dim.png')
 
-solutioneuler=solver.solve(method='euler', n=n1, filenametxt='./solutions/euler_solution.txt' )
-solutioneuler_dim2=solver2.solve(method='euler', n=n2, filenametxt='./solutions/euler_solution_2dim.txt')
-solver.plot_solution(solutioneuler, filenamepng='./plots/euler_solution.png')   
-solver2.plot_solution(solutioneuler_dim2, filenamepng='./plots/euler_solution_2dim.png')
+solutioneuler=solver.solve(method='euler', n=n1, filenametxt='./solutions_ode/euler_solution.txt' )
+solutioneuler_dim2=solver2.solve(method='euler', n=n2, filenametxt='./solutions_ode/euler_solution_2dim.txt')
+solver.plot_solution(solutioneuler, filenamepng='./plots_ode/euler_solution.png')   
+solver2.plot_solution(solutioneuler_dim2, filenamepng='./plots_ode/euler_solution_2dim.png')
 
-solutionmidpoint=solver.solve(method='midpoint', n=n1, filenametxt='./solutions/midpoint_solution.txt')
-solutionmidpoint_dim2=solver2.solve(method='midpoint', n=n2, filenametxt='./solutions/midpoint_solution_2dim.txt')
-solver.plot_solution(solutionmidpoint, filenamepng='./plots/midpoint_solution.png')
-solver2.plot_solution(solutionmidpoint_dim2, filenamepng='./plots/midpoint_solution_2dim.png')
+solutionmidpoint=solver.solve(method='midpoint', n=n1, filenametxt='./solutions_ode/midpoint_solution.txt')
+solutionmidpoint_dim2=solver2.solve(method='midpoint', n=n2, filenametxt='./solutions_ode/midpoint_solution_2dim.txt')
+solver.plot_solution(solutionmidpoint, filenamepng='./plots_ode/midpoint_solution.png')
+solver2.plot_solution(solutionmidpoint_dim2, filenamepng='./plots_ode/midpoint_solution_2dim.png')
 
 
 print("\n-------------------------ACCURACY---------------------------------------------\n")
@@ -79,28 +79,28 @@ solver2.accuracy_test(method='midpoint', analytic_solution=analytic2, n=n2)
 print("\n-------------------------EFFICIENCY---------------------------------------------\n")
 
 solver.efficiency_test(method='RK4', n=n1)
-solRK4pyt, solRK4pyY=solver.RK4scipy_solve( filenametxt='./solutions/RK4_solution_scipy.txt')
-solver.plot_py('RK4',solRK4pyt, solRK4pyY, filenamepng='./plots/RK4_solution_scipy_scipy.png')
+solRK4pyt, solRK4pyY=solver.RK4scipy_solve( filenametxt='./solutions_ode/RK4_solution_scipy.txt')
+solver.plot_py('RK4',solRK4pyt, solRK4pyY, filenamepng='./plots_ode/RK4_solution_scipy_scipy.png')
 
 solver2.efficiency_test(method='RK4', n=n2)
-solRK4pyt_2dim, solRK4pyY_2dim=solver2.RK4scipy_solve( filenametxt='./solutions/RK4_solution_scipy_2dim.txt')
-solver2.plot_py('RK4',solRK4pyt_2dim, solRK4pyY_2dim, filenamepng='./plots/RK4_solution_scipy_2dim.png')
+solRK4pyt_2dim, solRK4pyY_2dim=solver2.RK4scipy_solve( filenametxt='./solutions_ode/RK4_solution_scipy_2dim.txt')
+solver2.plot_py('RK4',solRK4pyt_2dim, solRK4pyY_2dim, filenamepng='./plots_ode/RK4_solution_scipy_2dim.png')
 
 solver.efficiency_test(method='euler', n=n1)
 soleulpyt, soleulpyY=solver.euler(n=n1)
-solver.plot_py('euler',soleulpyt, soleulpyY, filenamepng='./plots/euler_solution_py.png')
+solver.plot_py('euler',soleulpyt, soleulpyY, filenamepng='./plots_ode/euler_solution_py.png')
 
 solver2.efficiency_test(method='euler', n=n2)
 soleulpyt_2dim, soleulpyY_2dim=solver2.euler(n=n2)
-solver2.plot_py('euler',soleulpyt_2dim, soleulpyY_2dim, filenamepng='./plots/euler_solution_py_2dim.png')
+solver2.plot_py('euler',soleulpyt_2dim, soleulpyY_2dim, filenamepng='./plots_ode/euler_solution_py_2dim.png')
 
 solver.efficiency_test(method='midpoint', n=n1)
 solmidpyt,solmidpyY=solver.midpoint(n=n1)
-solver.plot_py('midpoint',solmidpyt,solmidpyY, filenamepng='./plots/midpoint_solution_py.png')
+solver.plot_py('midpoint',solmidpyt,solmidpyY, filenamepng='./plots_ode/midpoint_solution_py.png')
 
 solver2.efficiency_test(method='midpoint', n=n2)
 solmidpyt_2dim,solmidpyY_2dim=solver2.midpoint(n=n2)
-solver2.plot_py('midpoint',solmidpyt_2dim,solmidpyY_2dim, filenamepng='./plots/midpoint_solution_py_2dim.png')    
+solver2.plot_py('midpoint',solmidpyt_2dim,solmidpyY_2dim, filenamepng='./plots_ode/midpoint_solution_py_2dim.png')    
 
 print("\n-------------------------STABILITY---------------------------------------------\n")
 
