@@ -7,10 +7,10 @@ import time
 import os 
 from scipy.integrate import solve_ivp
 
-if not os.path.exists("./plots"):
-    os.mkdir("./plots")
-if not os.path.exists("./solutions"):
-    os.mkdir("./solutions")
+if not os.path.exists("./plots_ode"):
+    os.mkdir("./plots_ode")
+if not os.path.exists("./solutions_ode"):
+    os.mkdir("./solutions_ode")
 
 class ODESolverpy:
     def __init__(self, fun, t_start, t_end, y0):
@@ -46,7 +46,7 @@ class ODESolverpy:
             raise ValueError("Invalid method. Choose between 'RK4', 'midpoint', or 'euler'.")
         return solution
 
-    def plot_solution(self, solution, filenamepng):
+    def plot_solution(self, solution, filenamepng=None):
         '''It plots the solution of the Cauchy problem made with the function solve.
             Solution is given by the c++ code binded'''
         plt.figure(figsize=(10, 6))
