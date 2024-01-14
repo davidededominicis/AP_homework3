@@ -4,8 +4,8 @@
 
 set -x # print commands executed
 
-BOOST_ROOT=~/Desktop/uni/advanced_programming/homeworks/extlib # $1
-EIGEN_PATH=/usr/local/include/eigen3 # $2
+BOOST_ROOT=$1 # ~/Desktop/uni/advanced_programming/homeworks/extlib
+EIGEN_PATH=$2 # /usr/local/include/eigen3
 # PYBIND_PATH=$3 # example: ... already specified in CmakeLists.txt
 
 # execute cmake command

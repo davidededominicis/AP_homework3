@@ -2,10 +2,10 @@
 
 cd apps/
 
-echo +++++ TEST OF CSV +++++
+echo $'+++++ TEST OF CSV +++++\n'
 
 python3 testcsv.py
 
-echo +++++ TEST OF ODE +++++
+echo $'\n\n+++++ TEST OF ODE +++++\n'
 
 python3 testode.py
