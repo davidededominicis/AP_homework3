@@ -1,111 +1,64 @@
-#ifndef CSVPARSER_HPP_
-#define CSVPARSER_HPP_
+#ifndef ODESOLVER_HPP_
+#define ODESOLVER_HPP_
 
-#include <fstream>
 #include <iostream>
-#include <iomanip>
-#include <typeinfo>
-#include <sstream>
-#include <string>
-#include <variant>
-#include <optional>
-#include <map>
+#include <functional>
+#include <cmath>
+#include <fstream>
 #include <vector>
+#include "Eigen/Dense"
+#include <chrono>
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#include <boost/accumulators/accumulators.hpp>
-#include <boost/accumulators/statistics.hpp>
-#include <boost/accumulators/statistics/median.hpp>
-#include <boost/accumulators/statistics/covariance.hpp>
-#pragma GCC diagnostic pop
-
-
+using namespace Eigen;
 using namespace std;
-using namespace boost::accumulators;
 
-class CSVParser {
-public:
-	//CONSTRUCTOR
-	CSVParser(const string& input_file);
-
-	//PARSER function
-	void read();
-	
-	// OPERATOR ()
-	//Access to a single element of the dataset through parentesis
-	const variant<optional <string>, optional<double>> operator()(const int row, const int col) const;
-
-	//BASIC STATISTIC
-	//The following functions allow to do some basic statistical operations on specified column of the dataset
-	double mean_col(const size_t col_idx) const;
-	double var_col(const size_t col_idx) const;
-	double median_col(const size_t col_idx) const;
-	double std_dev(const size_t col_idx) const;
-	double covar(const size_t col_idx1, const size_t col_idx2) const;
-	double correlation_analysis(size_t col_idx1, size_t col_idx2) const;
-
-	//FREQUENCY COUNT
-	//The function counts how many times each element appears in the specified column.
- std::vector<std::pair<string, int>> countFrequency(const size_t col_idx) const;
-
-	//SUMMARY
-	//Compute frequency count for every element in every column. 
-	//Compute mean, median, standard deviation, correlation analisis for every column of double.
-	//Results saved in the specified file.
-	void summary(const string& filename) const;
-
-	//CLASSIFICATON
-	//Search in the specified column for the wanted element.
-	//The function prints the corresponding rows in a .txt file
-	void classification(const string wanted, const size_t col_idx, const string& filename) const;
-
-
-	//ITERATOR CLASS
-	class ColIterator{
-	private:
-	const CSVParser& csvparser;
-	size_t col;
-
-	public:
-		//CONSTRUCTOR
-		ColIterator(const CSVParser& csvp, size_t size ) : csvparser(csvp), col(size){};
-
-		//OPERATOR++
-		ColIterator& operator++(){
-			++col;
-			return *this;
-		}
-
-		//OPERATOR!=
-		bool operator!= ( const ColIterator& other) const{
-			return col != other.col;
-		}
-
-		//OPERATOR*
-		const variant<vector<optional<string>>, vector<optional<double>>>& operator*() const{
-			return csvparser.dataset[col];
-		}
-	};
-
-	//ITERATOR TO FIRST COLUMN
-	ColIterator begin() const{
-		return ColIterator(*this, 0);
-	}
-
-	//ITERATOR TO LAST COLUMN
-	ColIterator end() const{
-		return ColIterator(*this, dataset.size());
-	}
-
-
-	
-
-private:
-	const string input_file;			//csv file
-	vector<variant<vector<optional<string>>, vector<optional<double>>>> dataset;
-	vector<string> header;		//name of the columns
-	size_t size;					//number of column
+struct ODESolution {
+  VectorXd t;
+  vector<VectorXd> Y;
 };
+
+class ODESolver {
+private:
+  const function<VectorXd(double,VectorXd)> fun; //Function to implement outside the class
+  const double t_start; //Initial value of the interval of the domain of the function
+  const double t_end; //Last value of the interval of the domain of the function
+  const VectorXd y0; //Initial value of the Cauchy problem
+
+public:
+    //Constructor
+    ODESolver(function<VectorXd(double, VectorXd)> fun, double t_start, double t_end, VectorXd y0);
+
+    //Runge Kutta 4 method for solving ODEs
+    ODESolution RK4(const unsigned int n);
+
+    //Variation of RK4 that saves the results into a csv
+    void RK4_csv(const unsigned int n, const string filename);
+
+    //Midpoint method for solving ODEs
+    ODESolution midpoint(const unsigned int n);
+
+    //Variation of midpoint method that saves the results into a csv
+    void midpoint_csv(const unsigned int n, const string filename);
+
+    // Forward Euler methord for solving ODEs
+    ODESolution euler(const unsigned int n);
+
+    // Variation of euler method that saves the results into a csv
+    void euler_csv(const unsigned int n,const string filename);
+
+    // Accuracy
+    double accuracy(ODESolution& res,const function<VectorXd(double)> analitic);
+
+    //Efficiency
+    double efficiency(const string method, const unsigned int n);
+
+    //Stability
+    pair<double, double> stability(const string method, ODESolution& res, const double p);
+
+    //Convergence
+    double convergence(ODESolution& res,const function<VectorXd(double)> analytic_solution);
+ 
+};
+
 
 #endif
