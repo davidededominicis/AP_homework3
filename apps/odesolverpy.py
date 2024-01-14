@@ -109,6 +109,7 @@ class ODESolverpy:
 
     def plot_py(self, method, t, Y, filenamepng):
         '''It plots the solution made with RK4scipy_solve or euler or midpoint'''
+        plt.figure(figsize=(10, 6))
         if method == 'RK4':
             for i in range(len(self.y0)):
                 plt.plot(t, Y[i], label=f"y{i+1}")
