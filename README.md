@@ -44,6 +44,6 @@ The result will be saved in a build directory inside the main project directory.
 To test the executables on a predetermined example execute *./testbuild.sh*. In order to change the dataset on which maincsv is executed is necessary to modify the given dataset in the testbuild.sh file or execute the command *./maincsv datasetname.csv outputfile_name.
 ## INDIVIDUAL CONTRIBUTION
 - pybind11 bindings: Gottardi
-- python, c++ integration, data type corections: Carpenè, De Dominicis
+- python, c++ integration, data type corrections: Carpenè, De Dominicis
 - functionalities and performance testing: Carpené, De Dominicis
 - project organization, scripts, CMake: Gottardi
