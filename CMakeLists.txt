@@ -1,17 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 project(advanced_programming_homework_3)
 
-#find_package(pybind11 REQUIRED)
-#include_directories(SYSTEM ${pybind11_INCLUDE_DIRS})
 
-
-##################################################
-
-# OLD PART
-
-##################################################
-
-add_compile_options(-std=c++17 -Wall -Wextra -Wpedantic) 
+add_compile_options(-std=c++17 -Wall -Wextra -Wpedantic -Werror -Wno-deprecated-copy)
 
 # --COMPILE CSVPARSER SHARED LIBRARY--
 
