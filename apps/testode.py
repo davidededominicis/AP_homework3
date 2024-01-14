@@ -80,7 +80,7 @@ print("\n-------------------------EFFICIENCY------------------------------------
 
 solver.efficiency_test(method='RK4', n=n1)
 solRK4pyt, solRK4pyY=solver.RK4scipy_solve( filenametxt='./solutions_ode/RK4_solution_scipy.txt')
-solver.plot_py('RK4',solRK4pyt, solRK4pyY, filenamepng='./plots_ode/RK4_solution_scipy_scipy.png')
+solver.plot_py('RK4',solRK4pyt, solRK4pyY, filenamepng='./plots_ode/RK4_solution_scipy.png')
 
 solver2.efficiency_test(method='RK4', n=n2)
 solRK4pyt_2dim, solRK4pyY_2dim=solver2.RK4scipy_solve( filenametxt='./solutions_ode/RK4_solution_scipy_2dim.txt')
