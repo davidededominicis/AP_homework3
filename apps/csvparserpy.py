@@ -37,7 +37,6 @@ class CSVParserpy:
         '''
         return self.c.mean_col(col)
     
-    @timer
     def mean_col_np(self, col):
         '''
         Compute the mean using numpy
@@ -54,7 +53,7 @@ class CSVParserpy:
         Return: the variance of the column
         '''
         return self.c.var_col(col)
-    @timer 
+
     def var_col_np(self, col):
         '''
         Compute the variance using numpy
@@ -71,7 +70,7 @@ class CSVParserpy:
         Return: the median of the column
         '''
         return self.c.median_col(col)
-    @timer
+    
     def median_col_np(self, col):
         ''' 
         Compute the median using numpy
@@ -89,7 +88,7 @@ class CSVParserpy:
         '''
         return self.c.std_dev(col)
     
-    @timer
+    
     def std_dev_np(self, col):
         '''
         Compute the standard deviation using numpy
@@ -115,7 +114,7 @@ class CSVParserpy:
             print(f"correlation_analysis Error: {e}. One of the columns is not numeric")
             return None
     
-    @timer
+    
     def correlation_analysis_np(self, col1, col2):
         '''
         Compute the correlation using numpy
@@ -141,7 +140,7 @@ class CSVParserpy:
         '''
         return self.c.countFrequency(col)
     
-    @timer  
+     
     def countFrequency_np(self, col):
         '''
         Compute the count frequency using numpy
@@ -187,7 +186,7 @@ class CSVParserpy:
                     file.write(f' Element: {k} Frequency: {v}\n')
                 
 
-        print(f'Summary written to {filename}')
+        print(f'Summary with Numpy written to {filename}')
 
     def classification(self, wanted, col, filename):
         '''
